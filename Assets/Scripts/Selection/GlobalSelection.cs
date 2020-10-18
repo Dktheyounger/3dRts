@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalSelection : MonoBehaviour
 {
 
-    SelectedDictionary selectedTable;
+    public static SelectedDictionary selectedTable;
     RaycastHit hit;
 
     bool dragSelect;
@@ -58,7 +58,7 @@ public class GlobalSelection : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(p1);
 
-                if (Physics.Raycast(ray, out hit, 50000.0f))
+                if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 9)))
                 {
                     if (Input.GetKey(KeyCode.LeftShift)) //inclusive select
                     {
